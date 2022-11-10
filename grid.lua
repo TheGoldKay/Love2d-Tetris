@@ -27,7 +27,7 @@ function Grid:lay(piece)
     for k, v in pairs(piece.actual) do 
         top = v[2] + piece.y 
         left = v[1] + piece.x
-        self.g[top+1][left+1].filled = true 
+        self.g[top][left+1].filled = true 
     end 
 end 
 

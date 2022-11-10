@@ -9,7 +9,7 @@ function Shape:init()
     self.s = 60
     self.xmax = (love.graphics.getWidth() / self.s) - 1
     self.ymax = (love.graphics.getHeight() / self.s) - 1
-    self.x = 5
+    self.x = love.math.random(0, self.xmax-1)
     self.y = 1
     self.sp = square
     self.actual = square
@@ -28,7 +28,7 @@ function Shape:move(dt)
     end 
     for k, v in pairs(self.actual) do 
         top = (v[2] + self.y ) * self.s
-        if top * self.s >= love.graphics.getHeight() then 
+        if top >= love.graphics.getHeight() then 
             self.out = true 
         end 
     end 
@@ -38,7 +38,11 @@ function Shape:draw()
     for k, v in pairs(self.actual) do 
         top = (v[2] + self.y ) * self.s
         left = (v[1] + self.x) * self.s
+        love.graphics.setColor(1, 1, 1)
         love.graphics.rectangle('fill', left, top, self.s, self.s)
+        love.graphics.setColor(0, 0, 0)
+        love.graphics.rectangle('line', left, top, self.s, self.s)
+        --love.graphics.setColor(1, 1, 1)
     end 
 end 
 

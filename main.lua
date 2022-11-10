@@ -16,12 +16,17 @@ end
 
 function love.draw()
     grid:draw()
-    shape:draw()
+    if shape.out == false then 
+        shape:draw()
+    end 
 end
 
 function love.update(dt)
-    shape:move(dt)
     if shape.out then 
         grid:lay(shape)
+        shape = Shape:init()
+    else 
+        shape:move(dt)
     end 
+
 end 
