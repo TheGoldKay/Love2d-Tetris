@@ -23,6 +23,17 @@ function Grid:makeGrid()
     end
 end 
 
+function Grid:hitbox(piece)
+    for k, v in pairs(piece.actual) do 
+        top = v[2] + piece.y 
+        left = v[1] + piece.x
+        if self.g[top][left+1].filled == true then 
+            return true 
+        end 
+    end    
+    return false 
+end
+
 function Grid:lay(piece)
     for k, v in pairs(piece.actual) do 
         top = v[2] + piece.y 

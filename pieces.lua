@@ -7,15 +7,15 @@ Shape.__index = Shape
 function Shape:init()
     self = setmetatable({}, self)
     self.s = 60
-    self.xmax = (love.graphics.getWidth() / self.s) - 1
-    self.ymax = (love.graphics.getHeight() / self.s) - 1
-    self.x = love.math.random(0, self.xmax-1)
+    self.xmax = (love.graphics.getWidth() / self.s) 
+    self.ymax = (love.graphics.getHeight() / self.s) 
+    self.x = love.math.random(0, self.xmax-2)
     self.y = 1
     self.sp = square
     self.actual = square
     self.s = 60
     self.timer = 0
-    self.clock = 0.5
+    self.clock = 0.3
     self.out = false 
     return self 
 end 
@@ -29,8 +29,8 @@ function Shape:move(dt)
         self.timer = 0
     end 
     for k, v in pairs(self.actual) do 
-        top = (v[2] + self.y ) * self.s
-        if top >= love.graphics.getHeight() then 
+        top = v[2] + self.y 
+        if top >= self.ymax then 
             self.out = true 
         end 
     end 
