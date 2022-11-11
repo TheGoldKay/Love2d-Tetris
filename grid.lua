@@ -32,6 +32,7 @@ function Grid:lay(piece)
 end 
 
 function Grid:draw()
+
     for k, line  in pairs(self.g) do 
         for j, v in pairs(line) do 
             if v.filled == false then 
@@ -39,6 +40,12 @@ function Grid:draw()
             else
                 love.graphics.rectangle('fill', v.x, v.y, self.s, self.s)
             end 
+        end 
+    end 
+    for k, line  in pairs(self.g) do 
+        for j, v in pairs(line) do 
+            love.graphics.setColor(0, 0, 0)
+            love.graphics.rectangle('line', v.x, v.y, self.s, self.s)
         end 
     end 
 end 

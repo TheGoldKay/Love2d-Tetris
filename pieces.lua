@@ -38,13 +38,12 @@ function Shape:draw()
     for k, v in pairs(self.actual) do 
         top = (v[2] + self.y ) * self.s
         left = (v[1] + self.x) * self.s
+        --love.graphics.setColor(1, 1, 1)
+        --love.graphics.rectangle('fill', left, top, self.s, self.s)
         love.graphics.setColor(1, 1, 1)
         love.graphics.rectangle('fill', left, top, self.s, self.s)
-        love.graphics.setColor(0, 0, 0)
-        love.graphics.rectangle('line', left, top, self.s, self.s)
         --love.graphics.setColor(1, 1, 1)
     end 
 end 
-
 
 return Shape 

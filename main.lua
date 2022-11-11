@@ -15,10 +15,10 @@ function love.keypressed(key)
 end 
 
 function love.draw()
-    grid:draw()
     if shape.out == false then 
         shape:draw()
     end 
+    grid:draw()
 end
 
 function love.update(dt)
@@ -28,5 +28,4 @@ function love.update(dt)
     else 
         shape:move(dt)
     end 
-
 end 
