@@ -15,10 +15,12 @@ function Shape:init()
     self.actual = square
     self.s = 60
     self.timer = 0
-    self.clock = 0.1
+    self.clock = 0.5
     self.out = false 
     return self 
 end 
+
+
 
 function Shape:move(dt)
     self.timer = self.timer + dt 
@@ -38,11 +40,8 @@ function Shape:draw()
     for k, v in pairs(self.actual) do 
         top = (v[2] + self.y ) * self.s
         left = (v[1] + self.x) * self.s
-        --love.graphics.setColor(1, 1, 1)
-        --love.graphics.rectangle('fill', left, top, self.s, self.s)
         love.graphics.setColor(1, 1, 1)
         love.graphics.rectangle('fill', left, top, self.s, self.s)
-        --love.graphics.setColor(1, 1, 1)
     end 
 end 
 

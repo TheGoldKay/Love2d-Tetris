@@ -8,18 +8,23 @@ function love.load()
     --grid:lay(shape)
 end 
 
-function love.keypressed(key)
-    if key == 'escape' then 
-        love.event.quit()
-    end 
-end 
-
 function love.draw()
     if shape.out == false then 
         shape:draw()
     end 
     grid:draw()
 end
+
+function love.keypressed(key)
+    if key == 'escape' then 
+        love.event.quit()
+    end 
+    if key == 'a' or key == 'left' then 
+        shape.x = shape.x - 1
+    elseif key == 'd' or key == 'right' then
+        shape.x = shape.x + 1
+    end 
+end 
 
 function love.update(dt)
     if shape.out then 
