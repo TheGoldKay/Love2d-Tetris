@@ -31,6 +31,21 @@ function Grid:lay(piece)
     end 
 end 
 
+function Grid:erase()
+    for i, line in pairs(self.g) do 
+        no = true 
+        for j, v in pairs(line) do 
+            if not v.filled then 
+                no = false 
+            end 
+        end 
+        if no then
+            for j, v in pairs(line) do 
+                self.g[i][j].filled = false 
+            end 
+        end
+    end 
+end 
 function Grid:draw()
 
     for k, line  in pairs(self.g) do 

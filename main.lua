@@ -28,4 +28,5 @@ function love.update(dt)
     else 
         shape:move(dt)
     end 
+    grid:erase()
 end 
